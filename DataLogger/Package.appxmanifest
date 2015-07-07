@@ -28,21 +28,26 @@
   </Resources>
 
   <Applications>
-    <Application Id="App"
-      Executable="$targetnametoken$.exe"
-      EntryPoint="DataLogger.App">
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="DataLogger.App">
       <uap:VisualElements
-        DisplayName="DataLogger"
-        Square150x150Logo="Assets\Logo.png"
-        Square44x44Logo="Assets\SmallLogo.png"
-        Description="DataLogger"
-        BackgroundColor="#464646">
+        DisplayName="DataLogger" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="DataLogger" BackgroundColor="#464646">
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
+      <Extensions>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="dat">
+            <uap:DisplayName>dat</uap:DisplayName>
+            <uap:SupportedFileTypes>
+              <uap:FileType>.dat</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+      </Extensions>
     </Application>
   </Applications>
 
   <Capabilities>
     <Capability Name="internetClient" />
+    <uap:Capability Name="removableStorage"/>
   </Capabilities>
 </Package>
